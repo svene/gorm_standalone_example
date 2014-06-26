@@ -3,10 +3,8 @@ package org.svenehrke.demo.gormstandalone
 import org.svenehrke.demo.gormstandalone.control.DBInitializer
 import org.svenehrke.demo.gormstandalone.entity.Address2
 import org.svenehrke.demo.gormstandalone.entity.Person2
-//import grails.gorm.tests.GormDatastoreSpec
 import spock.lang.Specification
 
-//class Person2Spec extends GormDatastoreSpec {
 class Person2Spec extends Specification {
 
 	public static final String NAME = 'Sven'
@@ -39,8 +37,12 @@ class Person2Spec extends Specification {
 
 
 		when:
-		p = Person2.findByName(NAME, [fetch:  [address2: "eager"] ] ) // note: eager required, otherwise: rg.hibernate.LazyInitializationException: could not initialize proxy - no Session
-		Address2 address2 = p.getAddress2()
+		Address2 address2
+		Person2.withTransaction { // needs to be wrapped in a, otherwise 'p.getAdress2() call' complains with: rg.hibernate.LazyInitializationException: could not initialize proxy - no Session
+			p = Person2.findByName(NAME)
+			address2 = p.getAddress2()
+		}
+		// note: now address2 and p are in detached state
 
 		then:
 		address2 != null
