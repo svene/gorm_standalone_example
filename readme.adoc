@@ -1,0 +1,23 @@
+= GORM standalone demos
+
+
+Demonstrates how gorm can be used in a simple gradle based project. Domain classes are stored in package +entity+ .
+
+Have a look at the tests to see how it is used.
+
+== Notes
+
+gorm calls should be made inside a transaction. Otherwise entities are detached immediately. Example:
+
+[source,groovy]
+----
+Person2.withTransaction {
+  Person2 p = Person2.findByName(personName)
+  def address2 = p.address2
+  result = address2.street
+}
+----
+
+
+---
+(Inspired by https://gist.github.com/graemerocher/c25ec929d9bcd1adcbea)
