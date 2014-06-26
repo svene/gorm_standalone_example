@@ -28,7 +28,7 @@ class PersonSpec extends Specification {
 
 		and:
 		Person p = Person.findByName(NAME)
-		assert NAME == p.name
+		NAME == p.name
 
 	}
 }
