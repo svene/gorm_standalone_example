@@ -1,4 +1,4 @@
-package org.svenehrke.demo.gormstandalone.boundary
+package org.svenehrke.demo.gormstandalone.service
 
 import org.svenehrke.demo.gormstandalone.entity.Person2
 

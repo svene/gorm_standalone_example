@@ -1,6 +1,6 @@
 package org.svenehrke.demo.gormstandalone
 
-import org.svenehrke.demo.gormstandalone.boundary.AddressService
+import org.svenehrke.demo.gormstandalone.service.AddressService
 import org.svenehrke.demo.gormstandalone.control.DBInitializer
 import org.svenehrke.demo.gormstandalone.entity.Address2
 import org.svenehrke.demo.gormstandalone.entity.Person2

@@ -1,4 +1,4 @@
-package org.svenehrke.demo.gormstandalone.boundary
+package org.svenehrke.demo.gormstandalone.app
 
 import org.svenehrke.demo.gormstandalone.control.DBInitializer
 import org.svenehrke.demo.gormstandalone.entity.Person
